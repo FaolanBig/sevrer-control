@@ -63,7 +63,6 @@ void rotate4D(float in[4], float out[4])
     out[3] = w1;
 }
 
-MCUFRIEND_kbv tft;
 
 void setup()
 {
