@@ -57,13 +57,14 @@ void setup()
     tft.setRotation(1);
     tft.fillScreen(BLACK);
 
-    /*for (auto &&i : colors)
+    for (auto &&i : colors)
     {
         tft.fillScreen(i);
     }
-    delay(1000);
+    //delay(1000);
     tft.fillScreen(BLACK);
 
+    /*
     for (int i = 0; i < 100; i+10)
     {
         tft.drawRect(i, i, 320 - 2 * i, 240 - 2 * i, WHITE);
