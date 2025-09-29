@@ -32,7 +32,7 @@ void setup() {
 }
 
 void loop() {
-  tft.fillScreen(BLACK);
+  //tft.fillScreen(BLACK);
 
   int w = tft.width();
   int h = tft.height();
@@ -75,4 +75,11 @@ void loop() {
   }
 
   delay(30); // Geschwindigkeit
+    for (int e = 0; e < 6; e++) {
+        int p1 = edges[e][0];
+        int p2 = edges[e][1];
+        tft.drawLine(projected[p1][0], projected[p1][1],
+                     projected[p2][0], projected[p2][1],
+                     BLACK);
+    }
 }
