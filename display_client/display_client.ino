@@ -35,6 +35,12 @@ void setup()
     }
     delay(1000);
     tft.fillScreen(BLACK);
+
+    for (int i = 0; i < 100; i+10)
+    {
+        tft.drawRect(i, i, 320 - 2 * i, 240 - 2 * i, WHITE);
+    }
+    
 }
 
 void loop()
