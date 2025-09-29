@@ -1,4 +1,4 @@
-#include <SPI.h>          // f.k. for Arduino-1.5.2
+//#include <SPI.h>          // f.k. for Arduino-1.5.2
 #include "Adafruit_GFX.h"// Hardware-specific library
 #include <MCUFRIEND_kbv.h>
 

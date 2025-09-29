@@ -1,3 +1,5 @@
 {
-    "sketch": "display_client/display_client.ino"
+    "sketch": "display_client/display_client.ino",
+    "board": "arduino:avr:uno",
+    "programmer": "avrisp"
 }
