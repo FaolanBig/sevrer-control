@@ -39,6 +39,7 @@ void setup()
     for (int i = 0; i < 100; i+10)
     {
         tft.drawRect(i, i, 320 - 2 * i, 240 - 2 * i, WHITE);
+        delay(100);
     }
     
 }
