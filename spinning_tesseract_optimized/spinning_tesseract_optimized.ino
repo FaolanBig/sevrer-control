@@ -80,7 +80,8 @@ void loop()
                      WHITE);
     }
 
-    delay(20); // schneller Refresh
+    delay(30); // schneller Refresh
+
     for (int e = 0; e < 32; e++)
     {
         int p1 = edges[e][0];
