@@ -4,36 +4,41 @@
 
 MCUFRIEND_kbv tft;
 
-#define BLACK   0x0000
-#define WHITE   0xFFFF
+#define BLACK 0x0000
+#define WHITE 0xFFFF
 
 // 5 Eckpunkte der Pyramide (Basis = Quadrat auf XY-Ebene, Spitze oben)
 float pyramid[5][3] = {
-  {-1, -1, -1},   // 0: hinten links
-  { 1, -1, -1},   // 1: hinten rechts
-  { 1,  1, -1},   // 2: vorne rechts
-  {-1,  1, -1},   // 3: vorne links
-  { 0,  0,  1}    // 4: Spitze
+    {-1, -1, -1}, // 0: hinten links
+    {1, -1, -1},  // 1: hinten rechts
+    {1, 1, -1},   // 2: vorne rechts
+    {-1, 1, -1},  // 3: vorne links
+    {0, 0, 1}     // 4: Spitze
 };
 
 // Kanten (Index-Paare der Punkte)
 int edges[8][2] = {
-  {0,1}, {1,2}, {2,3}, {3,0},   // Basis-Quadrat
-  {0,4}, {1,4}, {2,4}, {3,4}    // Seitenflächen zur Spitze
+    {0, 1}, {1, 2}, {2, 3}, {3, 0}, // Basis-Quadrat
+    {0, 4},
+    {1, 4},
+    {2, 4},
+    {3, 4} // Seitenflächen zur Spitze
 };
 
 float angleX = 0, angleY = 0;
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
   uint16_t ID = tft.readID();
   tft.begin(ID);
-  tft.setRotation(1);        // Landscape
+  tft.setRotation(1); // Landscape
   tft.fillScreen(BLACK);
 }
 
-void loop() {
-  //tft.fillScreen(BLACK);
+void loop()
+{
+  // tft.fillScreen(BLACK);
 
   int w = tft.width();
   int h = tft.height();
@@ -44,7 +49,8 @@ void loop() {
 
   // Eckpunkte nach Rotation und Projektion
   int projected[5][2];
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 5; i++)
+  {
     float x = pyramid[i][0];
     float y = pyramid[i][1];
     float z = pyramid[i][2];
@@ -58,7 +64,7 @@ void loop() {
     float z2 = -x * sin(angleY) + z1 * cos(angleY);
 
     // einfache Projektion
-    float scale = 100;   // Größe
+    float scale = 100; // Größe
     int px = (int)(x2 * scale) + w / 2;
     int py = (int)(y1 * scale) + h / 2;
 
@@ -67,7 +73,8 @@ void loop() {
   }
 
   // Kanten zeichnen
-  for (int e = 0; e < 8; e++) {
+  for (int e = 0; e < 8; e++)
+  {
     int p1 = edges[e][0];
     int p2 = edges[e][1];
     tft.drawLine(projected[p1][0], projected[p1][1],
@@ -77,11 +84,12 @@ void loop() {
 
   delay(30); // Geschwindigkeit
 
-    for (int e = 0; e < 8; e++) {
-        int p1 = edges[e][0];
-        int p2 = edges[e][1];
-        tft.drawLine(projected[p1][0], projected[p1][1],
-                     projected[p2][0], projected[p2][1],
-                     BLACK);
-    }
+  for (int e = 0; e < 8; e++)
+  {
+    int p1 = edges[e][0];
+    int p2 = edges[e][1];
+    tft.drawLine(projected[p1][0], projected[p1][1],
+                 projected[p2][0], projected[p2][1],
+                 BLACK);
+  }
 }
