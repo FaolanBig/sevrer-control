@@ -33,7 +33,8 @@ void setup()
     {
         tft.fillScreen(i);
     }
-    
+    delay(1000);
+    tft.fillScreen(BLACK);
 }
 
 void loop()
