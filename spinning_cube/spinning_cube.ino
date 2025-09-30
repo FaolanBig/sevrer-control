@@ -130,8 +130,8 @@ void loop()
     tft.setCursor(20, 20);
     tft.print("FPS: " + String(1000.0 / (timediff)));
     time = millis();
+    timediff = time - time2;
     time2 = millis();
-    timediff = time2 - time;
     tft.setTextColor(WHITE);
     tft.setCursor(20, 20);
     tft.print("FPS: " + String(1000.0 / (timediff)));
