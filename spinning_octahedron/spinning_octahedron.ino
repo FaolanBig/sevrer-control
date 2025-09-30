@@ -78,7 +78,7 @@ void loop()
                      WHITE);
     }
 
-    delay(30); // Geschwindigkeit
+    //delay(30); // Geschwindigkeit
 
     for (int e = 0; e < 12; e++)
     {
