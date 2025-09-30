@@ -67,7 +67,6 @@ void setup()
     tft.fillScreen(BLACK);
     tft.setTextColor(WHITE);
     tft.setTextSize(2);
-    tft.setCursor(20, 20);
 
     /*
     for (int i = 0; i < 100; i+10)
@@ -126,7 +125,7 @@ void loop()
                      WHITE);
     }
 
-    //tft.setCursor(20, 20);
+    tft.setCursor(20, 20);
     timediff = millis();
     tft.print("FPS: " + String(1000.0 / (time - timediff)));
     time = millis();
