@@ -123,7 +123,7 @@ void loop()
         int p2 = edges[e][1];
         tft.drawLine(projected[p1][0], projected[p1][1],
                      projected[p2][0], projected[p2][1],
-                     GREEN);
+                     WHITE);
     }
 
     tft.setTextColor(BLACK);
@@ -132,7 +132,7 @@ void loop()
     time = millis();
     timediff = time - time2;
     time2 = millis();
-    tft.setTextColor(GREEN);
+    tft.setTextColor(WHITE);
     tft.setCursor(20, 20);
     tft.print("FPS: " + String(1000.0 / (timediff)));
     // delay(30); // Geschwindigkeit
