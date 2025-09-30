@@ -78,6 +78,7 @@ void loop()
     // #########################################################################
     // tft.fillScreen(BLACK);
 
+    //long time = millis();
     int w = tft.width();
     int h = tft.height();
 
@@ -120,7 +121,7 @@ void loop()
                      WHITE);
     }
 
-    delay(30); // Geschwindigkeit
+    //delay(30); // Geschwindigkeit
     for (int e = 0; e < 12; e++)
     {
         int p1 = edges[e][0];
