@@ -18,6 +18,8 @@
 #define WHITE 0xFFFF
 
 unsigned int colors[] = {BLACK, BLUE, RED, GREEN, CYAN, MAGENTA, YELLOW, WHITE};
+long time = millis();
+long timediff = 0;
 
 MCUFRIEND_kbv tft;
 
@@ -63,6 +65,9 @@ void setup()
     }
     // delay(1000);
     tft.fillScreen(BLACK);
+    tft.setTextColor(WHITE);
+    tft.setTextSize(2);
+    tft.setCursor(20, 20);
 
     /*
     for (int i = 0; i < 100; i+10)
@@ -121,6 +126,10 @@ void loop()
                      WHITE);
     }
 
+    //tft.setCursor(20, 20);
+    timediff = millis();
+    tft.print("FPS: " + String(1000.0 / (time - timediff)));
+    time = millis();
     //delay(30); // Geschwindigkeit
     for (int e = 0; e < 12; e++)
     {
