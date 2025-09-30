@@ -19,6 +19,7 @@
 
 unsigned int colors[] = {BLACK, BLUE, RED, GREEN, CYAN, MAGENTA, YELLOW, WHITE};
 long time = millis();
+long time2 = millis();
 long timediff = 0;
 
 MCUFRIEND_kbv tft;
@@ -67,6 +68,7 @@ void setup()
     tft.fillScreen(BLACK);
     tft.setTextColor(WHITE);
     tft.setTextSize(2);
+    tft.setCursor(20, 20);
 
     /*
     for (int i = 0; i < 100; i+10)
@@ -82,7 +84,7 @@ void loop()
     // #########################################################################
     // tft.fillScreen(BLACK);
 
-    //long time = millis();
+    // long time = millis();
     int w = tft.width();
     int h = tft.height();
 
@@ -125,11 +127,14 @@ void loop()
                      WHITE);
     }
 
-    tft.setCursor(20, 20);
-    timediff = millis();
-    tft.print("FPS: " + String(1000.0 / (time - timediff)));
+    tft.setTextColor(BLACK);
+    tft.print("FPS: " + String(1000.0 / (timediff)));
     time = millis();
-    //delay(30); // Geschwindigkeit
+    time2 = millis();
+    timediff = time2 - time;
+    tft.setTextColor(WHITE);
+    tft.print("FPS: " + String(1000.0 / (timediff)));
+    // delay(30); // Geschwindigkeit
     for (int e = 0; e < 12; e++)
     {
         int p1 = edges[e][0];
